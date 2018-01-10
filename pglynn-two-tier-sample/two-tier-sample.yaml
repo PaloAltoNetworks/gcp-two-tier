@@ -1,0 +1,39 @@
+imports:
+- path: network-template.py
+- path: firewall-template.py
+- path: webserver-template.py
+- path: dbserver-template.py
+
+resources:
+- name: two-tier-network
+  type: network-template.py
+  properties:
+        project: pglynn-template-test1
+        region: us-central1
+- name: two-tier-firewall
+  type: firewall-template.py
+  properties:
+        project: pglynn-template-test1
+        zone: us-central1-a
+        hostname: firewall
+        instanceSize: n1-standard-4
+        sourceimage: projects/pglynn-demo-187622/global/images/pa-vm-8-1-0b8
+        serviceaccount: 258308799954-compute@developer.gserviceaccount.com
+        bootstrapbucket: pglynn-bootstrap
+        sshkey: "pglynn:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDFdrfdjQAR/cgzURE60/1JlqhYq+kqHxcq2ZNM4yVDhmVw+ggQpqMd0to2FdYyuxmHGuQxlaLBJxP0mqnKSp6yHjgj+14G+ohaZJmnAwp6audmuGVED2ybVfopg6vXwYWHhWlJY77nDI+qCU5nTe29Y6ZoSoObbYZAjf69MtAS1vnQ0dwnS960J8dghZ31+fym1Vt0yXYfgBOaN2+Bb+GQkWkxD7Pq+PEXwq/w+2j6wwvflEFAUd5sLz8vO0U00DaVbTUo2AhGUQfwe5RlL3SC7si4Pt7X1el+k0Mnxg32RKzPS4dwzzf1FIIGeaaSgmQM0dnCHqb3g37sYjrmaUHj pglynn"
+- name: two-tier-webserver
+  type: webserver-template.py
+  properties:
+        project: pglynn-template-test1
+        zone: us-central1-a
+        hostname: webserver
+        instanceSize: f1-micro
+        sshkey: "pglynn:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDFdrfdjQAR/cgzURE60/1JlqhYq+kqHxcq2ZNM4yVDhmVw+ggQpqMd0to2FdYyuxmHGuQxlaLBJxP0mqnKSp6yHjgj+14G+ohaZJmnAwp6audmuGVED2ybVfopg6vXwYWHhWlJY77nDI+qCU5nTe29Y6ZoSoObbYZAjf69MtAS1vnQ0dwnS960J8dghZ31+fym1Vt0yXYfgBOaN2+Bb+GQkWkxD7Pq+PEXwq/w+2j6wwvflEFAUd5sLz8vO0U00DaVbTUo2AhGUQfwe5RlL3SC7si4Pt7X1el+k0Mnxg32RKzPS4dwzzf1FIIGeaaSgmQM0dnCHqb3g37sYjrmaUHj pglynn"
+- name: two-tier-dbserver
+  type: dbserver-template.py
+  properties:
+        project: pglynn-template-test1
+        zone: us-central1-a
+        hostname: dbserver
+        instanceSize: f1-micro
+        sshkey: "pglynn:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDFdrfdjQAR/cgzURE60/1JlqhYq+kqHxcq2ZNM4yVDhmVw+ggQpqMd0to2FdYyuxmHGuQxlaLBJxP0mqnKSp6yHjgj+14G+ohaZJmnAwp6audmuGVED2ybVfopg6vXwYWHhWlJY77nDI+qCU5nTe29Y6ZoSoObbYZAjf69MtAS1vnQ0dwnS960J8dghZ31+fym1Vt0yXYfgBOaN2+Bb+GQkWkxD7Pq+PEXwq/w+2j6wwvflEFAUd5sLz8vO0U00DaVbTUo2AhGUQfwe5RlL3SC7si4Pt7X1el+k0Mnxg32RKzPS4dwzzf1FIIGeaaSgmQM0dnCHqb3g37sYjrmaUHj pglynn"
