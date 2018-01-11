@@ -1,14 +1,26 @@
 #!/bin/bash
 exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
+temp=$(curl "http://metadata.google.internal/computeMetadata/v1/instance/zone" -H "Metadata-Flavor: Google")
+zone=$(basename $temp)
+FW_IP=$(gcloud compute instances describe firewall --zone=$zone --format="value(networkInterfaces[3].networkIP)")
 while true
     do
-        resp=$(curl -s -S -g --insecure "https://10.5.3.4/api/?type=op&cmd=<show><chassis-ready></chassis-ready></show>&key=LUFRPT1CU0dMRHIrOWFET0JUNzNaTmRoYmkwdjBkWWM9alUvUjBFTTNEQm93Vmx0OVhFRlNkOXdJNmVwYWk5Zmw4bEs3NjgwMkh5QT0=")
+        resp=$(curl -s -S -g --insecure "https://$FW_IP/api/?type=op&cmd=<show><chassis-ready></chassis-ready></show>&key=LUFRPT1CU0dMRHIrOWFET0JUNzNaTmRoYmkwdjBkWWM9alUvUjBFTTNEQm93Vmx0OVhFRlNkOXdJNmVwYWk5Zmw4bEs3NjgwMkh5QT0=")
 	echo $resp
         if [[ $resp == *"[CDATA[yes"* ]] ; then
             break
         fi
         sleep 10s
     done
+while true
+  do
+   resp=$(curl -s -S -g --insecure "https://raw.githubusercontent.com/PaloAltoNetworks/azure/master/two-tier-sample/ssh-to-db.cgi")
+   echo $resp
+   if [[ $resp == *"DB-IP-ADDRESS"* ]] ; then
+     break
+   fi
+   sleep 10s
+  done
 sudo apt-get update
 sudo apt-get -y install debconf-utils
 echo "mysql-server mysql-server/root_password password paloalto@123" | sudo debconf-set-selections

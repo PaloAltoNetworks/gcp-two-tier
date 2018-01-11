@@ -134,7 +134,9 @@ def GenerateConfig(context):
           'sourceRanges': ['0.0.0.0/0'],
           'allowed': [{
             'IPProtocol': 'tcp',
-            'ports': [3306, 80, 22, 443],
+            },{
+            'IPProtocol': 'udp',
+            },{
             'IPProtocol': 'icmp'
           }]
       }
@@ -149,7 +151,9 @@ def GenerateConfig(context):
           'sourceRanges': ['0.0.0.0/0'],
           'allowed': [{
             'IPProtocol': 'tcp',
-            'ports': [3306, 22, 80, 443],
+            },{
+            'IPProtocol': 'udp',
+            },{
             'IPProtocol': 'icmp'
           }]
       }

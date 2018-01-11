@@ -29,15 +29,28 @@ def GenerateConfig(context):
                 'boot': True,
                 'autoDelete': True,
                 'initializeParams': {
-                    'sourceImage': 'projects/debian-cloud/global/images/family/debian-9'
+                    'sourceImage': 'projects/debian-cloud/global/images/family/debian-8'
                 }
             }],
             'metadata': {
                 'items': [{
                     'key': 'ssh-keys',
                     'value': context.properties['sshkey']
+                },{
+                    'key': 'startup-script-url',
+                    'value': ''.join(['gs://', context.properties['bootstrapbucket'], '/webserver-startup.sh'])
                 }]
             },
+            'serviceAccounts': [{
+               'email': context.properties['serviceaccount'],
+               'scopes': [
+                          'https://www.googleapis.com/auth/cloud.useraccounts.readonly',
+                          'https://www.googleapis.com/auth/devstorage.read_only',
+                          'https://www.googleapis.com/auth/logging.write',
+                          'https://www.googleapis.com/auth/monitoring.write',
+                          'https://www.googleapis.com/auth/compute.readonly',
+               ]}
+            ],
             'networkInterfaces': [{
                 'network': '$(ref.web.selfLink)',
                 'subnetwork': '$(ref.web-subnet.selfLink)',

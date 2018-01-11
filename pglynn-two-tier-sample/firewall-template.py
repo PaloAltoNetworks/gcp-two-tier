@@ -39,6 +39,9 @@ def GenerateConfig(context):
                 },{
                     'key': 'ssh-keys',
                     'value': context.properties['sshkey']
+                },{
+                    'key': 'serial-port-enable',
+                    'value': 'true' 
                 }]
             },
             'serviceAccounts': [{
