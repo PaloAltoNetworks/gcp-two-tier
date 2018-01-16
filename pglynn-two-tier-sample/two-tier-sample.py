@@ -242,6 +242,9 @@ def GenerateConfig(context):
                 },{
                     'key': 'startup-script-url',
                     'value': ''.join(['gs://', context.properties['startupbucket'], '/dbserver-startup.sh'])
+                },{
+                    'key': 'serial-port-enable',
+                    'value': 'true' 
                 }]
             },
             'serviceAccounts': [{
@@ -282,6 +285,9 @@ def GenerateConfig(context):
                 },{
                     'key': 'startup-script-url',
                     'value': ''.join(['gs://', context.properties['startupbucket'], '/webserver-startup.sh'])
+                },{
+                    'key': 'serial-port-enable',
+                    'value': 'true' 
                 }]
             },
             'serviceAccounts': [{

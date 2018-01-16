@@ -5,11 +5,11 @@ resources:
 - name: two-tier-sample
   type: two-tier-sample.py
   properties:
-        project: pgtest-two-tier
-        region: us-central1
-        zone: us-central1-a
-        sourceimage: projects/pglynn-budapest-test/global/images/pa-vm-8-1-0b8
-        startupbucket: two-tier-bootstrap
-        bootstrapbucket: two-tier-startup
-        serviceaccount: 85979524782-compute@developer.gserviceaccount.com
-        sshkey: "pglynn:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDFdrfdjQAR/cgzURE60/1JlqhYq+kqHxcq2ZNM4yVDhmVw+ggQpqMd0to2FdYyuxmHGuQxlaLBJxP0mqnKSp6yHjgj+14G+ohaZJmnAwp6audmuGVED2ybVfopg6vXwYWHhWlJY77nDI+qCU5nTe29Y6ZoSoObbYZAjf69MtAS1vnQ0dwnS960J8dghZ31+fym1Vt0yXYfgBOaN2+Bb+GQkWkxD7Pq+PEXwq/w+2j6wwvflEFAUd5sLz8vO0U00DaVbTUo2AhGUQfwe5RlL3SC7si4Pt7X1el+k0Mnxg32RKzPS4dwzzf1FIIGeaaSgmQM0dnCHqb3g37sYjrmaUHj pglynn"
+        project: <PROJECT NAME>
+        region: <REGION>
+        zone: <ZONE>
+        sourceimage: <SOURCE IMAGE>
+        bootstrapbucket: <BOOTSTRAP BUCKET>
+        startupbucket: <STARTUP SCRIPT BUCKET>
+        serviceaccount: <SERVICE ACCOUNT>
+        sshkey: <SSH KEY>
