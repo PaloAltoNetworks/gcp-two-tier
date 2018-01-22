@@ -12,26 +12,25 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 """Creates the Compute Engine."""
-
+import uuid
 #Variables
-zone = "us-west1-a"
-region = "us-west1"
-sshkey = 'niyengar:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCdkWALTta/QvGRSfGf8LS4CoNHuNR6ifjLMGnC0Gd5ubvU8SMNusGnY4SY/xUMuLRhmgxCFQ54mSck4zAmFQMf0ro3GDzb9UZYWAr9eQXpogNjiEY2AykYN8+E1g30WRsWdia9G2+QZ+8oCRwh2uIkTBFVtVosMOeUip2Wx+ivYtKx5ZUh9zMl4Jztr720qVlcX+NYncCYyZ8iRpnWmRf4mvggQ1jFTfKQJSNy7YAY1x+lTR5Sg6FZdaAhuxjnNzl5LL7xYqG3cbRfG+uiAEWzjdD5g07Nr+3D9G8KWBDBiQ64XabIiZDSe+Vjs57bALwcGMDBDLPzoBpPcpEL7yIe2NlXDCz8ArYPzmXwwd5GyyzhoFrSqmyAA5bPaMogQVGZjv2VMRbPz5gSnp2poO1h5YxOwvBWq0VgiDXamYiD15Sug3vyZkR7ZVQyCTe13I8H4hY7U+xSfPaqYrxAJnybFvzYtHxZcNGX6vanWEcyWzM4TEUAdWw/ApTiQQUotAg5Kw5e4j5CD+sVyAliwZNqJVIE85/iQH+Vem/B8VEU/T4J6lMbDsnQworgbdetbMSWOs8bnXAO7jNyH2m1G0Lm6FDuIv885mctJNzjG2z0dN7Dl5zA/x+nsb2Y5vZ7+BKFJOE1rPRMweUEgKGe6nZVMzr8mL4XMD1jryJboYzNNw== niyengar@paloaltonetworks.com'
-bootstrap_bucket = 'narayan-storage'
-scripts_bucket = 'two-tier-scripts'
-serviceaccount = '201389370779-compute@developer.gserviceaccount.com'
-project_name = 'narayan-gcp-project'
+zone = ###ZONE
+region = ###Region
+sshkey = ## ssh key PUBLIC
+bootstrap_bucket = ###bootstrap bucket
+scripts_bucket = ###Bucket where gcp template files are stored. Can be bootstrap bucket
+serviceaccount = ###GCP service account
+project_name = ###GCP project name
+image = ####FW image name
 
-
-mgmt_network = "mgmt-network"
+mgmt_network = "mgmt-network-"+uuid.uuid4().hex[:4].upper()
 mgmt_subnet = "mgmt-subnet"
-web_network = "web-network"
+web_network = "web-network-"+uuid.uuid4().hex[:4].upper()
 web_subnet = "web-subnet"
-untrust_network = "untrust-network"
+untrust_network = "untrust-network-"+uuid.uuid4().hex[:4].upper()
 untrust_subnet = "untrust-subnet"
-db_network = "db-network"
+db_network = "db-network-"+uuid.uuid4().hex[:4].upper()
 db_subnet = "db-subnet"
-image = "vmseries-fw-bpest"
 imageWeb = "debian-8"
 machineType = "n1-standard-4"
 machineTypeWeb = "f1-micro"
