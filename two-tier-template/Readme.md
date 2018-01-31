@@ -19,3 +19,4 @@ image = # FW image name for the VM-Series. Check the beta deployment guide
 ```
    $gcloud deployment-manager deployments create deployment1 --config two-tier-sample.yaml
 ```
+4. user/pass for firewall is paloalto/Pal0Alt0@123
