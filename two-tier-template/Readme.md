@@ -11,6 +11,7 @@ zone = # Enter the desired ZONE for deployment.
 region = # Enter the desired Region for deployment.
 sshkey = # Enter your PUBLIC ssh key and make sure you append it with your username.
 bootstrap_bucket = # Enter a bucket name where you have stored the VM-Series bootstrap files.
+scripts_bucket = ###bucket with web and db startup scripts
 serviceaccount = # GCP service account. Default one created by GCP should suffice.
 image = # FW image name for the VM-Series. Check the beta deployment guide for details.
 
