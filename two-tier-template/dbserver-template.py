@@ -42,7 +42,7 @@ def GenerateConfig(context):
                     'value': context.properties['sshkey']
                 },{
                     'key': 'startup-script-url',
-                    'value': 'value': ''.join(['gs://', context.properties['bootstrapbucket'], '/dbserver-startup.sh'])
+                    'value': ''.join(['gs://', context.properties['bootstrapbucket'], '/dbserver-startup.sh'])
                 }]
             },
             'serviceAccounts': [{
