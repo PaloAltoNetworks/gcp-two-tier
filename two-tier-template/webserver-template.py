@@ -42,7 +42,7 @@ def GenerateConfig(context):
                     'value': context.properties['sshkey']
                 },{
                     'key': 'startup-script-url',
-                    'value': 'https://raw.githubusercontent.com/PaloAltoNetworks/googlecloud/master/two-tier-template/webserver-startup.sh'
+                    'value': ''.join(['gs://', context.properties['bootstrapbucket'], '/webserver-startup.sh'])
                 }]
             },
             'serviceAccounts': [{

@@ -12,12 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 """Creates the Compute Engine."""
-
 #Variables
 zone = ###ZONE
 region = ###Region
 sshkey = ## ssh key PUBLIC
 bootstrap_bucket = ###bootstrap bucket
+scripts_bucket = ###bucket with web and db startup scripts
 serviceaccount = ###GCP service account
 image = ####FW image name
 
@@ -69,7 +69,8 @@ def GenerateConfig(unused_context):
           'web-subnet': web_subnet,
           'imageWeb': imageWeb,
           'sshkey': sshkey,
-          'serviceaccount': serviceaccount
+          'serviceaccount': serviceaccount,
+          'bootstrapbucket': scripts_bucket,
       }
   },
     {
@@ -83,7 +84,8 @@ def GenerateConfig(unused_context):
           'db-subnet': db_subnet,
           'imageWeb': imageWeb,
           'sshkey': sshkey,
-          'serviceaccount': serviceaccount
+          'serviceaccount': serviceaccount,
+          'bootstrapbucket': scripts_bucket,
       }
   },
   {

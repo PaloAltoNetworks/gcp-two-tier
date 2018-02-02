@@ -38,7 +38,8 @@ def GenerateConfig(context):
           }],
           'metadata': {
               'items': [{'key': 'vmseries-bootstrap-gce-storagebucket','value': context.properties['bootstrapbucket']},
-                        {'key': 'ssh-keys','value':context.properties['sshkey']}]
+                        {'key': 'ssh-keys','value':context.properties['sshkey']},
+                        {'key': 'serial-port-enable','value':'1'}]
           },
           'serviceAccounts': [{
                'email': context.properties['serviceaccount'],
