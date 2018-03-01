@@ -37,13 +37,11 @@ def GenerateConfig(context):
                 }
             }],
             'metadata': {
-                'items': [{
-                    'key': 'ssh-keys',
-                    'value': context.properties['sshkey']
-                },{
-                    'key': 'startup-script-url',
-                    'value': ''.join(['gs://', context.properties['bootstrapbucket'], '/dbserver-startup.sh'])
-                }]
+                'items': [
+                    {'key': 'ssh-keys', 'value': context.properties['sshkey']},
+                    {'key': 'serial-port-enable','value':'1'},
+                    {'key': 'startup-script-url','value': ''.join(['gs://', context.properties['bootstrapbucket'], '/dbserver-startup.sh'])}
+                    ]
             },
             'serviceAccounts': [{
                'email': context.properties['serviceaccount'],
