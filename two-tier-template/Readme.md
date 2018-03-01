@@ -4,24 +4,9 @@ This GCP template deploys a VM-Series next generation firewall VM in GCP along w
 
 ![alt_text](gcp-topology.png?raw=true "topology")
 
-# Deployment steps
-1. Install the gcloud CLI SDK https://cloud.google.com/sdk/downloads
 
-2. Edit the two-tier-template.py with your GCP deployment details
-```
-#Variables
-zone = # Enter the desired ZONE for deployment.
-region = # Enter the desired Region for deployment.
-sshkey = # Enter your PUBLIC ssh key and make sure you append it with your username.
-bootstrap_bucket = # Enter a bucket name where you have stored the VM-Series bootstrap files.
-scripts_bucket = ###bucket with web and db startup scripts
-serviceaccount = # GCP service account. Default one created by GCP should suffice.
-image = # FW image name for the VM-Series. Check the beta deployment guide for details.
+# <a href="https://github.com/PaloAltoNetworks/googlecloud/blob/master/two-tier-template/GCP_Deployment_Manager_How_To_Guide.pdf">Deployment Guide</a> 
 
-```
-3. Save the file and deploy using the CLI
-```
-   $gcloud config set project <gcp-project-name>
-   $gcloud deployment-manager deployments create deployment1 --config two-tier-sample.yaml
-```
-4. user/pass for firewall in the sample bootstrap file is paloalto/Pal0Alt0@123. Be sure to change this immediately after deployment. 
+# Support: Community Supported
+
+Unless otherwise noted, these templates are released under an as-is, best effort, support policy. These scripts should be seen as community supported and Palo Alto Networks will contribute our expertise as and when possible. We do not provide technical support or help in using or troubleshooting the components of the project through our normal support options such as Palo Alto Networks support teams, or ASC (Authorized Support Centers) partners and backline support options. The underlying product used (the VM-Series firewall) by the scripts or templates are still supported, but the support is only for the product functionality and not for help in deploying or using the template or script itself. Unless explicitly tagged, all projects or work posted in our GitHub repository (at https://github.com/PaloAltoNetworks) or sites other than our official Downloads page on https://support.paloaltonetworks.com are provided under a community supported, best effort, policy.
