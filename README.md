@@ -1,4 +1,4 @@
-# googlecloud
+# Google Cloud Platform
 VM-Series templates for Google Cloud Platform
 
 Support: Community Supported
