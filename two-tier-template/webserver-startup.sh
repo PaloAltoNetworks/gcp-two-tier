@@ -14,6 +14,28 @@ while true
    fi
   sleep 10s
 done
+
+while true
+  do
+   resp=$(curl -s -S -g --insecure "https://$FW_IP/api/?type=op&cmd=<request><content><upgrade><download><latest></latest></download></upgrade></content></request>&key=LUFRPT1CU0dMRHIrOWFET0JUNzNaTmRoYmkwdjBkWWM9alUvUjBFTTNEQm93Vmx0OVhFRlNkOXdJNmVwYWk5Zmw4bEs3NjgwMkh5QT0=")
+   echo $resp
+   if [[ $resp == *"success"* ]] ; then
+     break
+   fi
+  sleep 10s
+done
+
+while true
+  do
+   resp=$(curl -s -S -g --insecure "https://$FW_IP/api/?type=op&cmd=<request><content><upgrade><install><version>latest</version></install></upgrade></content></request>&key=LUFRPT1CU0dMRHIrOWFET0JUNzNaTmRoYmkwdjBkWWM9alUvUjBFTTNEQm93Vmx0OVhFRlNkOXdJNmVwYWk5Zmw4bEs3NjgwMkh5QT0=")
+   echo $resp
+   if [[ $resp == *"success"* ]] ; then
+     break
+   fi
+  sleep 10s
+done
+
+
 while true
   do
    resp=$(curl -s -S -g --insecure "https://raw.githubusercontent.com/PaloAltoNetworks/googlecloud/master/two-tier-template/ssh-to-db.cgi")
