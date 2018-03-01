@@ -1,5 +1,8 @@
-# A sample two-tier template for GCP
-This template deploys standard two-tier application protected by a VM-Series firewall. 
+# Deploy a two-tiered application environment secured by the VM-Series firewall
+
+This GCP template deploys a VM-Series next generation firewall VM in GCP along with a web and db server similar to a typical two tier architecture. 
+
+![alt_text](gcp-topology.png?raw=true "topology")
 
 # Deployment steps
 1. Install the gcloud CLI SDK https://cloud.google.com/sdk/downloads
