@@ -11,34 +11,48 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
+import uuid
+
 """Creates the Compute Engine."""
 #Variables
+randstr = uuid.uuid4().hex[:6].upper()
 zone = ###ZONE
 region = ###Region
 sshkey = ## ssh key PUBLIC
 bootstrap_bucket = ###bootstrap bucket
 scripts_bucket = ###bucket with web and db startup scripts
 serviceaccount = ###GCP service account
-image = ####FW image name
 
-mgmt_network = "mgmt-network"
-mgmt_subnet = "mgmt-subnet"
-web_network = "web-network"
-web_subnet = "web-subnet"
-untrust_network = "untrust-network"
-untrust_subnet = "untrust-subnet"
-db_network = "db-network"
-db_subnet = "db-subnet"
+
+image = "vmseries-byol-810"
+mgmt_network = "mgmt-network-" + randstr
+mgmt_subnet = "mgmt-subnet-" + randstr 
+web_network = "web-network-" + randstr
+web_subnet = "web-subnet-" + randstr
+untrust_network = "untrust-network-" + randstr
+untrust_subnet = "untrust-subnet-" + randstr
+db_network = "db-network-" + randstr
+db_subnet = "db-subnet-" + randstr
 imageWeb = "debian-8"
 machineType = "n1-standard-4"
 machineTypeWeb = "f1-micro"
+fwname = "vm-series-" + randstr
+webserver_name = "web-vm-" + randstr
+dbserver_name = "db-vm-" + randstr
+mgmt_firewall_rule = "mgmt-firewall-" + randstr
+untrust_firewall_rule = "untrust-firewall-" + randstr
+web_firewall_rule = "web-firewall-rule-" + randstr
+db_firewall_rule = "db-firewall-rule-" + randstr
+web_route = "web-route-" + randstr
+db_route = "db-route-" + randstr
 
 
 def GenerateConfig(unused_context):
   """Creates the Compute Engine with multiple templates."""
   resources = [
   {
-      'name': 'vm-series',
+      'name': fwname,
       'type': 'vm-series-template.py',
       'properties': {
           'name': 'vm-series',
@@ -59,10 +73,10 @@ def GenerateConfig(unused_context):
       }
   },
   {
-      'name': 'web-vm',
+      'name': webserver_name,
       'type': 'webserver-template.py',
       'properties': {
-          'name': 'web-vm',
+          'name': webserver_name,
           'zone': zone,
           'machineTypeWeb': machineTypeWeb,
           'web-network': web_network,
@@ -74,10 +88,10 @@ def GenerateConfig(unused_context):
       }
   },
     {
-      'name': 'db-vm',
+      'name': dbserver_name,
       'type': 'dbserver-template.py',
       'properties': {
-          'name': 'db-vm',
+          'name': dbserver_name,
           'zone': zone,
           'machineTypeWeb': machineTypeWeb,
           'db-network': db_network,
@@ -144,7 +158,7 @@ def GenerateConfig(unused_context):
       'metadata': {
         'dependsOn': [mgmt_network, db_network, web_network, untrust_network]
       },      
-      'name': 'web-route',
+      'name': web_route,
       'type': 'compute.v1.route',
       'properties': {
         'priority': 100,
@@ -157,7 +171,7 @@ def GenerateConfig(unused_context):
       'metadata': {
         'dependsOn': [mgmt_network, db_network, web_network, untrust_network]
       },      
-      'name': 'db-route',
+      'name': db_route,
       'type': 'compute.v1.route',
       'properties': {
         'priority': 100,
@@ -170,7 +184,7 @@ def GenerateConfig(unused_context):
       'metadata': {
         'dependsOn': [mgmt_network, db_network, web_network, untrust_network]
       },
-      'name': 'management-firewall',
+      'name': mgmt_firewall_rule,
       'type': 'compute.v1.firewall',
       'properties': {
           'region': region, 
@@ -188,7 +202,7 @@ def GenerateConfig(unused_context):
       'metadata': {
         'dependsOn': [mgmt_network, db_network, web_network, untrust_network]
       },
-      'name': 'untrust-firewall',
+      'name': untrust_firewall_rule,
       'type': 'compute.v1.firewall',
       'properties': {
           'region': region, 
@@ -206,7 +220,7 @@ def GenerateConfig(unused_context):
       'metadata': {
         'dependsOn': [mgmt_network, db_network, web_network, untrust_network]
       },
-      'name': 'web-firewall',
+      'name': web_firewall_rule,
       'type': 'compute.v1.firewall',
       'properties': {
           'region': region, 
@@ -227,7 +241,7 @@ def GenerateConfig(unused_context):
       'metadata': {
         'dependsOn': [mgmt_network, db_network, web_network, untrust_network]
       },      
-      'name': 'db-firewall',
+      'name': db_firewall_rule,
       'type': 'compute.v1.firewall',
       'properties': {
           'region': region, 

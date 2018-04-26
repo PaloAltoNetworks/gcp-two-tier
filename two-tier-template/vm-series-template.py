@@ -32,7 +32,7 @@ def GenerateConfig(context):
               'autoDelete': True,
               'initializeParams': {
                   'sourceImage': ''.join([COMPUTE_URL_BASE, 'projects/',
-                                          context.env['project'],'/global/',
+                                          'paloaltonetworksgcp-public','/global/',
                                           'images/',context.properties['image']])
               }
           }],
