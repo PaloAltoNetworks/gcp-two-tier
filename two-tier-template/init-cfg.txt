@@ -4,6 +4,6 @@ default-gateway=
 netmask=
 ipv6-address=
 ipv6-default-gateway=
-hostname=sample-cft-fw
+hostname=gcp-fw
 dns-primary=
 dns-secondary=

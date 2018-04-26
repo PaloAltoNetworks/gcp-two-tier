@@ -17,7 +17,6 @@
           </role-based>
         </permissions>
         <phash>$1$kpolrmjb$lJ5t7tCjS7Ghd8tachjOJ.</phash>
-        <public-key>c3NoLXJzYSBBQUFBQjNOemFDMXljMkVBQUFBREFRQUJBQUFCQVFEVVFuQnhGOGt1ZkV3a0ZPeTI0bkswSDFzUktiaGV1Z2xDdFFDVjY2WFc4U0pEN0p4ZHVrbG92eVJZSktVMWU1YUQ1OUdHbm05MHNnUXo5NlFkdzBSejRhUVZ6ZVpNUnN4VlMydDVwTkJydjhFQStlVHBWL3g4L3dINXlaZ1R2L05MK0JrMkI0TC9yVVBoekdKc0Q1OGxXNVFacG91enFPaXpmckE3bWdTcWlUY2l3WkdyQU5wdjl4UVNLckJvQUdrNUQ3d2tyM0p6SkpQL3VNc1BGbll0OHVrakUyc28ya0JmdXU4UVYydUsvZHo5RE1pK1lIOHlXaUlnd1ZKYTRTZy9Kam8zU2FhVGlkSGsvMmJxRmYwZjl6dVBXbU5Ja1ZqNk1jT01aQlZrMFlFM2lxcEloNTNVVFltMENvZVJkcGFjQytLTC9ISGVZRHlEMEgrclB5eHogZ29vZ2xlLXNzaCB7InVzZXJOYW1lIjoicHRnbHlubkBnbWFpbC5jb20iLCJleHBpcmVPbiI6IjIwMTgtMDEtMTJUMTc6MzM6MzMrMDAwMCJ9Cg==</public-key>
       </entry>
     </users>
   </mgt-config>
@@ -434,7 +433,7 @@
             <disable-telnet>yes</disable-telnet>
             <disable-http>yes</disable-http>
           </service>
-          <hostname>sample-cft-fw</hostname>
+          <hostname>gcp-fw</hostname>
           <dns-setting>
             <servers>
               <primary>208.67.222.222</primary>
@@ -458,7 +457,6 @@
           <management>
             <hostname-type-in-syslog>FQDN</hostname-type-in-syslog>
             <initcfg>
-              <public-key>c3NoLXJzYSBBQUFBQjNOemFDMXljMkVBQUFBREFRQUJBQUFCQVFEVVFuQnhGOGt1ZkV3a0ZPeTI0bkswSDFzUktiaGV1Z2xDdFFDVjY2WFc4U0pEN0p4ZHVrbG92eVJZSktVMWU1YUQ1OUdHbm05MHNnUXo5NlFkdzBSejRhUVZ6ZVpNUnN4VlMydDVwTkJydjhFQStlVHBWL3g4L3dINXlaZ1R2L05MK0JrMkI0TC9yVVBoekdKc0Q1OGxXNVFacG91enFPaXpmckE3bWdTcWlUY2l3WkdyQU5wdjl4UVNLckJvQUdrNUQ3d2tyM0p6SkpQL3VNc1BGbll0OHVrakUyc28ya0JmdXU4UVYydUsvZHo5RE1pK1lIOHlXaUlnd1ZKYTRTZy9Kam8zU2FhVGlkSGsvMmJxRmYwZjl6dVBXbU5Ja1ZqNk1jT01aQlZrMFlFM2lxcEloNTNVVFltMENvZVJkcGFjQytLTC9ISGVZRHlEMEgrclB5eHogZ29vZ2xlLXNzaCB7InVzZXJOYW1lIjoicHRnbHlubkBnbWFpbC5jb20iLCJleHBpcmVPbiI6IjIwMTgtMDEtMTJUMTc6MzM6MzMrMDAwMCJ9Cg==</public-key>
               <type>
                 <dhcp-client>
                   <send-hostname>yes</send-hostname>
@@ -467,7 +465,7 @@
                   <accept-dhcp-domain>no</accept-dhcp-domain>
                 </dhcp-client>
               </type>
-              <hostname>sample-cft-fw</hostname>
+              <hostname>gcp-fw</hostname>
               <dns-primary>8.8.8.8</dns-primary>
               <dns-secondary>8.8.4.4</dns-secondary>
             </initcfg>
