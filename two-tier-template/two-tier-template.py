@@ -55,7 +55,7 @@ def GenerateConfig(unused_context):
       'name': fwname,
       'type': 'vm-series-template.py',
       'properties': {
-          'name': 'vm-series',
+          'name': fwname,
           'zone': zone,
           'machineType': machineType,
           'mgmt-network': mgmt_network,
