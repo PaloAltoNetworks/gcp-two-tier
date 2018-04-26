@@ -5,5 +5,5 @@ netmask=
 ipv6-address=
 ipv6-default-gateway=
 hostname=sample-cft-fw
-dns-primary=8.8.8.8
-dns-secondary=8.8.4.4
+dns-primary=
+dns-secondary=
