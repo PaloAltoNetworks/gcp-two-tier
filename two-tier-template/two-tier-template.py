@@ -25,7 +25,7 @@ scripts_bucket = ###bucket with web and db startup scripts
 serviceaccount = ###GCP service account
 
 
-image = "vmseries-byol-810"
+image = "vmseries-bundle2-810"
 mgmt_network = "mgmt-network-" + randstr
 mgmt_subnet = "mgmt-subnet-" + randstr 
 web_network = "web-network-" + randstr
