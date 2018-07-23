@@ -1,5 +1,5 @@
 # Google Cloud Platform
-This repository provides example VM-Series templates for Google Cloud Platform that can use gcloud CLI or Deployment Manager. Additional [GCP Terraform templates](https://github.com/PaloAltoNetworks/GCP-Terraform-Samples) with load balancers, additional interfaces, and GKE are also available. 
+This repository provides example VM-Series templates for Google Cloud Platform that using gcloud CLI or Deployment Manager. Additional [GCP Terraform templates](https://github.com/PaloAltoNetworks/GCP-Terraform-Samples) with load balancers, additional interfaces, and GKE are also available. 
 
 Support: Community Supported
 --------
