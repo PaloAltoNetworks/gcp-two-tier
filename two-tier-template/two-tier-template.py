@@ -259,9 +259,5 @@ def GenerateConfig(unused_context):
       }
   }
   ]
-  outputs.append({'name': 'Web-Server-PublicIP-Address',
-                    'value': '$(ref.' + fwname + '.networkInterfaces[1].accessConfigs[0].natIP)'})
-  outputs.append({'name': 'PANFirewall-PublicIP-Address',
-                    'value': '$(ref.' + fwname + '.networkInterfaces[0].accessConfigs[0].natIP)'})
 
   return {'resources': resources, 'outputs': outputs}
