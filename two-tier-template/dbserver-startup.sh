@@ -32,7 +32,7 @@ mysql -uroot -ppaloalto@123 -e "DELETE FROM mysql.db WHERE Db='test' OR Db='test
 mysql -uroot -ppaloalto@123 -e "FLUSH PRIVILEGES;"
 sudo sed -i "s/.*bind-address.*/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
 sudo systemctl restart mysql
-mysql -uroot -ppaloalto@123 -e "CREATE DATABASE Demo;"
+mysql -uroot -ppaloalto@123 -e "CREATE DATABASE Demo1;"
 mysql -uroot -ppaloalto@123 -e "CREATE USER 'demouser'@'%' IDENTIFIED BY 'paloalto@123';"
-mysql -uroot -ppaloalto@123 -e "GRANT ALL PRIVILEGES ON Demo.* TO 'demouser'@'%';"
+mysql -uroot -ppaloalto@123 -e "GRANT ALL PRIVILEGES ON Demo1.* TO 'demouser'@'%';"
 mysql -uroot -ppaloalto@123 -e "FLUSH PRIVILEGES;"
