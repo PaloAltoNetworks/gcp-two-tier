@@ -16,7 +16,7 @@ import uuid
 
 """Creates the Compute Engine."""
 #Variables
-randstr = uuid.uuid4().hex[:6].upper()
+randstr = uuid.uuid4().hex[:6].lower()
 zone = ###ZONE
 region = ###Region
 sshkey = ## ssh key PUBLIC
@@ -26,26 +26,26 @@ serviceaccount = ###GCP service account
 
 
 image = "vmseries-bundle2-810"
-mgmt_network = "mgmt-network-" + randstr
-mgmt_subnet = "mgmt-subnet-" + randstr 
-web_network = "web-network-" + randstr
-web_subnet = "web-subnet-" + randstr
-untrust_network = "untrust-network-" + randstr
-untrust_subnet = "untrust-subnet-" + randstr
-db_network = "db-network-" + randstr
-db_subnet = "db-subnet-" + randstr
-imageWeb = "debian-8"
+mgmt_network = "mgmt-network"
+mgmt_subnet = "mgmt-subnet"
+web_network = "web-network"
+web_subnet = "web-subnet"
+untrust_network = "untrust-network"
+untrust_subnet = "untrust-subnet"
+db_network = "db-network"
+db_subnet = "db-subnet"
+imageWeb = "debian-9"
 machineType = "n1-standard-4"
 machineTypeWeb = "f1-micro"
-fwname = "vm-series-" + randstr
-webserver_name = "web-vm-" + randstr
-dbserver_name = "db-vm-" + randstr
-mgmt_firewall_rule = "mgmt-firewall-" + randstr
-untrust_firewall_rule = "untrust-firewall-" + randstr
-web_firewall_rule = "web-firewall-rule-" + randstr
-db_firewall_rule = "db-firewall-rule-" + randstr
-web_route = "web-route-" + randstr
-db_route = "db-route-" + randstr
+fwname = "vm-series"
+webserver_name = "web-vm"
+dbserver_name = "db-vm"
+mgmt_firewall_rule = "mgmt-firewall"
+untrust_firewall_rule = "untrust-firewall"
+web_firewall_rule = "web-firewall-rule"
+db_firewall_rule = "db-firewall-rule"
+web_route = "web-route"
+db_route = "db-route"
 
 
 def GenerateConfig(unused_context):
