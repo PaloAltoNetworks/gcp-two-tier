@@ -30,7 +30,7 @@ mysql -uroot -ppaloalto@123 -e "DELETE FROM mysql.user WHERE User='root' AND Hos
 mysql -uroot -ppaloalto@123 -e "DELETE FROM mysql.user WHERE User='';"
 mysql -uroot -ppaloalto@123 -e "DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_localhost';"
 mysql -uroot -ppaloalto@123 -e "FLUSH PRIVILEGES;"
-sudo sed -i "s/.*bind-address.*/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
+sudo sed -i "s/.*bind-address.*/bind-address = 0.0.0.0/" mariadb.conf.d/50-server.cnf
 sudo systemctl restart mysql
 mysql -uroot -ppaloalto@123 -e "CREATE DATABASE IF NOT EXISTS Demo;"
 mysql -uroot -ppaloalto@123 -e "CREATE USER 'demouser'@'%' IDENTIFIED BY 'paloalto@123';"
