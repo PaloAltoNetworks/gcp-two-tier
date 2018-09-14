@@ -260,4 +260,4 @@ def GenerateConfig(unused_context):
   }
   ]
 
-  return {'resources': resources, 'outputs': outputs}
+  return {'resources': resources}
