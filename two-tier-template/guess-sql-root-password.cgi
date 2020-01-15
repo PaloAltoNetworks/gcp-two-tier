@@ -22,7 +22,7 @@ echo '</script>'
 echo '</body>'
 echo '</html>'
 COUNTER=0
-  while [  $COUNTER -lt 10 ]; do
-    mysql -u user1 -h DB-IP-ADDRESS -pwrong demo
+  while [  $COUNTER -lt 250 ]; do
+    mysql -u user1 -h DB-IP-ADDRESS -pwrong demo --ssl-mode=DISABLED
     let COUNTER=COUNTER+1
   done
